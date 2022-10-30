@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>School Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="#">
+            <img src="https://img.icons8.com/color/48/000000/school.png" alt="" width="40" height="30" class="d-inline-block  align-text-top">
+            <span class="pl-4 pr-3">School Management System</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse px-5" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link "  th:href="@{/students}">Students</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link active" aria-current="page" th:href="@{/teachers}">Teachers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " th:href="@{/marks}">Student Marks</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <br>
+        <div class="text-center">
+            <h1 class="display-4 ">Teacher's Details</h1>
+            <p class="lead">The Teacher's Details window to help manage the teacher's admissions activities, and new registrations.</p>
+        </div>
+        <hr>
+    </div>
+
+    <div class="" role="alert">
+        <div class="d-flex align-items-center justify-content-center alert alert-warning py-0">
+            <div class="p-2" ><img width="40px" src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev/60/000000/external-teacher-online-learning-vitaliy-gorbachev-lineal-color-vitaly-gorbachev-1.png"/></div>
+            <div class="p-2">Click here to Register a New Teacher!</div>
+            <div class="p-2"><a th:href="@{/teachers/new}" class="btn btn-primary btn-sm">Register Teacher</a></div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Teacher Id</th>
+                <th>Teacher Name</th>
+                <th>Teacher Address</th>
+                <th>Contact No</th>
+                <th>Teacher Email</th>
+                <th>Subject</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "teacher: ${teachers}">
+                <td th:text = "${teacher.teacherId}"></td>
+                <td th:text = "${teacher.fullName}"></td>
+                <td th:text = "${teacher.homeAddress}"></td>
+                <td th:text = "${teacher.contactNumber}"></td>
+                <td th:text = "${teacher.email}"></td>
+                <td th:text = "${teacher.subject}"></td>
+                <td class="text-center">
+                    <a th:href="@{/teachers/edit/{id}(id=${teacher.id})}"
+                       class="btn btn-warning btn-sm mx-1">Update</a>
+
+                    <a th:href="@{/teachers/{id}(id=${teacher.id})}"
+                       class="btn btn-danger btn-sm mx-1">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
+</body>
+</html>
