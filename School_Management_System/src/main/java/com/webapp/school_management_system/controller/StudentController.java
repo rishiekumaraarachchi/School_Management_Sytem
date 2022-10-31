@@ -19,18 +19,19 @@ public class StudentController {
         this.studentService = studentService;
     }
 
-    //handler method to handle list of students
+    //handler method to handle list of students and return model and view
     @GetMapping("/students")
     public String listStudents(Model model) {
         model.addAttribute("students", studentService.getAllStudents());
-        return "students";
+        return "students";//return a view
     }
 
     //adding new student
     @GetMapping("/students/new")
     public String createStudentForm(Model model) {
+        //create student object to hold studet from data
         Student student = new Student();
-        model.addAttribute("student", student);
+        model.addAttribute("student", student);//key , value
         return "create_student";
     }
 
@@ -70,11 +71,14 @@ public class StudentController {
     }
 
 
-    @GetMapping("/students/add/{id}")
+    @GetMapping ("/students/add/{id}")
     public String addMarks(@PathVariable Long id, Model model) {
         model.addAttribute("student", studentService.getStudentById(id));
         return "add_marks";
     }
+
+
+
 
 
 }

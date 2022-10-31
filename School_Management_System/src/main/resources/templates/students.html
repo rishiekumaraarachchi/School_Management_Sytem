@@ -9,7 +9,6 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-
             <a class="navbar-brand" href="#">
                 <img src="https://img.icons8.com/color/48/000000/school.png" alt="" width="40" height="30" class="d-inline-block  align-text-top">
                 <span class="pl-4 pr-3">School Management System</span>
@@ -49,7 +48,6 @@
             <div class="p-2">Click here to Register a New Student!</div>
             <div class="p-2"><a th:href="@{/students/new}" class="btn btn-primary btn-sm">Register Student</a></div>
         </div>
-
     </div>
 
     <div class="container">
@@ -66,7 +64,7 @@
             </thead>
             <tbody>
                 <tr th:each = "student: ${students}">
-                    <td th:text = "${student.indexNo}"></td>
+                    <td th:text = "${student.indexNo}"></td>//model,model attribute
                     <td th:text = "${student.fullName}"></td>
                     <td th:text = "${student.homeAddress}"></td>
                     <td th:text = "${student.contactNumber}"></td>
