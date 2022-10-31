@@ -16,7 +16,7 @@ public class SchoolManagementSystemApplication implements CommandLineRunner {
         SpringApplication.run(SchoolManagementSystemApplication.class, args);
     }
 
-    @Autowired
+    @Autowired // inject student repository object
     private StudentRepository studentRepository;
 
     @Autowired
@@ -28,10 +28,10 @@ public class SchoolManagementSystemApplication implements CommandLineRunner {
 //        Student student1 = new Student("001", "Kasun","Kandy","0114567823", "kasun@gmail.com");
 //        studentRepository.save(student1);
 //
-//        Student student2 = new Student("002","Sanjay","Matale", "0714567823","sanjay@gmail.com");
+//        Student student2 = new Student("002","Sanjaya","Matale", "0714567823","sanjay@gmail.com");
 //        studentRepository.save(student2);
 //
-//        Teacher teacher1 = new Teacher("001","Ajan","Colombo", "0758964123","ajan@gmail.com","sinhala");
+//        Teacher teacher1 = new Teacher("001","Ajana","Colombo", "0758964123","ajan@gmail.com","sinhala");
 //        teacherRepository.save(teacher1);
 
     }

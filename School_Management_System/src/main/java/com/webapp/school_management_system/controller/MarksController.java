@@ -1,6 +1,7 @@
 package com.webapp.school_management_system.controller;
 
 import com.webapp.school_management_system.entity.Marks;
+import com.webapp.school_management_system.entity.Student;
 import com.webapp.school_management_system.service.MarksService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,9 +26,11 @@ public class MarksController {
         model.addAttribute("marks", marksService.getAllMarks());
         return "marks";
     }
-
-
-
+    @PostMapping("/marks")
+    public String saveStudent(@ModelAttribute("marks") Marks marks) {
+          marksService.saveMarks(marks);
+        return "redirect:/marks";
+    }
 
 
 }
